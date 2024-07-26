@@ -4,32 +4,20 @@ const { Schema } = mongoose;
 
 const UserSchema = new Schema(
   {
+    firstName: { type: String },
 
-    lastName: { type: String, required: true },
+    lastName: { type: String },
 
     email: { type: String, required: true },
 
-    emailVerified: { type: Date },
+    password: { type: String},
 
-    password: { type: String, select: false },
+    image: { type: String },
 
-    image: {type: String},
+    //for Clerk
+    clerkId: { type: String },
 
-    //for Google atc.
-    authProviderId: { type: String },
-
-    accounts: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Account",
-      },
-    ],
-
-    role: {
-      type: String,
-      enum: ["student", "admin"],
-      default: "student",
-    },
+    role: {type: String, default: "student"},
 
     answers: [
       {

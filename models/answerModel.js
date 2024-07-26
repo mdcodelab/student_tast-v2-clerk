@@ -9,8 +9,9 @@ const AnswerSchema = new Schema(
       ref: "User",
       required: true,
     }, 
+
     answers: [
-      {
+    {
         type: String,
         required: true,
         default: "0"
