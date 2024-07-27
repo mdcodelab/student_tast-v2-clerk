@@ -3,11 +3,11 @@ import { questions } from "@/utils/questions";
 import { Label } from "../components/ui/label";
 import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
 import { Button } from "../components/ui/button";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
-import { getAnswers, updateUser} from "@/app/actions/userActions";
+import { getAnswers, updateUser } from "@/app/actions/userActions";
 
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 
@@ -16,8 +16,8 @@ function Test() {
   const { isLoaded, isSignedIn, user } = useUser();
   //set its inital id value === null and the caputured it
   const [userId, setUserId] = useState(null);
-  useEffect(()=> {
-    if(isLoaded && isSignedIn && user){
+  useEffect(() => {
+    if (isLoaded && isSignedIn && user) {
       setUserId(user.id);
     }
   }, [isLoaded, isSignedIn, user]);
@@ -41,17 +41,16 @@ function Test() {
       await getAnswers(answers);
       console.log("Submitted answers:", answers);
       await updateUser(userId, answers);
-       toast.success("Test sent successfully!");
+      toast.success("Test sent successfully!");
     } catch (error) {
       toast.error("Error. Try again!");
       console.log(error);
     }
   };
 
-
-   if (!isLoaded || !isSignedIn) {
-     return null;
-   }
+  if (!isLoaded || !isSignedIn) {
+    return null;
+  }
 
   return (
     <>
@@ -62,7 +61,7 @@ function Test() {
         </Link>
       </Button>
       {/*  rezultat*/}
-      
+
       <>
         <form onSubmit={onSubmit}>
           {questions.map((item, questionIndex) => {

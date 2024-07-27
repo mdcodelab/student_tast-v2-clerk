@@ -9,16 +9,18 @@ const correctAnswers = [
 
 export const getAnswers = async (values) => {
   console.log(values);
-  return values; // Return the received values, an array of strings
+  return JSON.stringify(values); // Return the received values, serialized
 };
 
 export const calculateResult = async (values) => {
-  const studentAnswers = await getAnswers(values); // Array of answers
+  const studentAnswers = JSON.parse(await getAnswers(values)); // Deserialize the array of answers
   let totalScore = 0;
 
   for (let i = 0; i < studentAnswers.length; i++) {
     if (
-      studentAnswers[i] !== null && studentAnswers[i].toString() === correctAnswers[i].toString()) {
+      studentAnswers[i] !== null &&
+      studentAnswers[i].toString() === correctAnswers[i].toString()
+    ) {
       totalScore += 0.3;
     }
   }
@@ -35,7 +37,7 @@ export const updateUser = async (clerkId, values) => {
   const user = await User.findOne({ clerkId });
 
   if (user) {
-    const answers = await getAnswers(values);
+    const answers = JSON.parse(await getAnswers(values)); // Deserialize answers
     const result = await calculateResult(values);
 
     // Update the user's answers and result
@@ -46,5 +48,5 @@ export const updateUser = async (clerkId, values) => {
     console.log("There is no user");
   }
 
-  return user;
+  return JSON.stringify(user); // Return the user, serialized
 };
