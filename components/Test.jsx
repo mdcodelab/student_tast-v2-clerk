@@ -7,11 +7,23 @@ import { Button } from "../components/ui/button";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import Link from "next/link";
+import { useUser } from "@clerk/nextjs";
 import { getAnswers } from "@/app/actions/getAnswers";
-
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
+import { useEffect } from "react";
 
 function Test() {
+  const { isLoaded, isSignedIn, user } = useUser();
+  const [userId, setUserId] = useState(null);
+  useEffect(()=> {
+    if(isLoaded && isSignedIn && user){
+      setUserId(user.id);
+    }
+  }, [isLoaded, isSignedIn, user]);
+
+  console.log("User este:", user);
+  console.log("ID este:", userId);
+
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
 
   // Handle change for each quwersestion's answer
@@ -44,6 +56,10 @@ function Test() {
     }
     return totalScore+1;
   };
+
+   if (!isLoaded || !isSignedIn) {
+     return null;
+   }
 
   return (
     <>
