@@ -9,7 +9,8 @@ async function StudentsPage() {
       <Table>
         <TableHeader className="text-xl font-semibold">
           <TableRow>
-            <TableCell>ID</TableCell>
+            <TableCell>clerkId</TableCell>
+            <TableCell>Prenume</TableCell>
             <TableCell>Nume</TableCell>
             <TableCell>Email</TableCell>
             <TableCell>Rezultat</TableCell>

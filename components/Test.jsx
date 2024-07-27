@@ -1,19 +1,20 @@
 "use client";
-import { questions } from "../questions";
-import { correctAnswers } from "../questions";
+import { questions } from "@/utils/questions";
 import { Label } from "../components/ui/label";
 import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
 import { Button } from "../components/ui/button";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
-import { getAnswers } from "@/app/actions/getAnswers";
+import { getAnswers, updateUser} from "@/app/actions/userActions";
+
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
-import { useEffect } from "react";
 
 function Test() {
+  //get user id from Clerk
   const { isLoaded, isSignedIn, user } = useUser();
+  //set its inital id value === null and the caputured it
   const [userId, setUserId] = useState(null);
   useEffect(()=> {
     if(isLoaded && isSignedIn && user){
@@ -24,6 +25,7 @@ function Test() {
   console.log("User este:", user);
   console.log("ID este:", userId);
 
+  //capture user answers
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
 
   // Handle change for each quwersestion's answer
@@ -38,6 +40,7 @@ function Test() {
     try {
       await getAnswers(answers);
       console.log("Submitted answers:", answers);
+      await updateUser(userId, answers);
        toast.success("Test sent successfully!");
     } catch (error) {
       toast.error("Error. Try again!");
@@ -45,17 +48,6 @@ function Test() {
     }
   };
 
-  
-  const totalScore=0;
-  const finalResult = () => {
-    let totalScore = 0;
-    for (let i = 0; i < answers.length; i++) {
-      if (answers[i] !== null && answers[i].toString() === correctAnswers[i].toString()) {
-        totalScore += 0.3;
-      }
-    }
-    return totalScore+1;
-  };
 
    if (!isLoaded || !isSignedIn) {
      return null;
@@ -69,9 +61,8 @@ function Test() {
           <h2>Inapoi la Info</h2>
         </Link>
       </Button>
-      <div className="w-full">
-        <h1 className="text-xl mt-10 mb-2 font-bold">&#128512; Rezultat: {finalResult().toFixed(2)}</h1>
-      </div>
+      {/*  rezultat*/}
+      
       <>
         <form onSubmit={onSubmit}>
           {questions.map((item, questionIndex) => {

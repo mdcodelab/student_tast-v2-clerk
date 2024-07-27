@@ -1,72 +1,50 @@
 "use server";
-
 import connectDB from "@/utils/database";
 import User from "@/models/userModel";
-import { hash } from "bcryptjs";
-import { redirect } from "next/navigation";
-import { CredentialsSignin } from "next-auth";
-import { signIn } from "@/auth";
 
+const correctAnswers = [
+  2, 2, 0, 1, 1, 1, 0, 2, 0, 1, 2, 1, 0, 2, 1, 2, 0, 0, 1, 2, 1, 0, 2, 1, 0, 0,
+  2, 1, 0, 0,
+];
 
-
-export const registerUser = async (formData) => {
-  const firstName=formData.get("firstName");
-  const lastName = formData.get("lastName");
-  const email = formData.get("email");
-  const password=formData.get("password");
-
-  await connectDB();
-  const existingUser = await User.findOne({email});
-  if(existingUser) {
-    return null;
-  }
-
-const hashedPassword = await hash(password, 12);
-
-  const user=await User. create({
-    firstName, lastName, email, password: hashedPassword
-  })
-
-const plainUser = JSON.parse(JSON.stringify(user));
-console.log(plainUser);
-redirect("/auth/login");
+export const getAnswers = async (values) => {
+  console.log(values);
+  return values; // Return the received values, an array of strings
 };
 
+export const calculateResult = async (values) => {
+  const studentAnswers = await getAnswers(values); // Array of answers
+  let totalScore = 0;
 
-// export const loginUser = async (formData) => {
-//   const email = formData.get("email");
-//   const password = formData.get("password");
+  for (let i = 0; i < studentAnswers.length; i++) {
+    if (
+      studentAnswers[i] !== null && studentAnswers[i].toString() === correctAnswers[i].toString()) {
+      totalScore += 0.3;
+    }
+  }
 
-//   try {
-//     await signIn("Credentials", {
-//       redirect: false,
-//       callbackUrl: "/auth/login",
-//       email,
-//       password,
-//     });
-//   } catch (error) {
-//     const someError = error;
-//     return someError.cause;
-//   }
-//   redirect("/profile");
-// };
+  const finalScore = totalScore + 1;
+  console.log(finalScore); // Print the final score for debugging
+  return finalScore;
+};
 
+export const updateUser = async (clerkId, values) => {
+  await connectDB();
 
-export const loginUser = async (formData) => {
-  const email = formData.get("email");
-  const password = formData.get("password");
+  // Find user by clerkId in MongoDB
+  const user = await User.findOne({ clerkId });
 
-try {
-  await signIn("Credentials", {
-    email,
-    password,
-    redirect: false,
-    callbackUrl: "/profile",
-  });
-  
-} catch (error) {
-  const someError = error;
-    return someError.cause;
-}
-redirect("/profile")
+  if (user) {
+    const answers = await getAnswers(values);
+    const result = await calculateResult(values);
+
+    // Update the user's answers and result
+    user.answers = answers;
+    user.result = result;
+    await user.save();
+  } else {
+    console.log("There is no user");
+  }
+
+  return user;
 };

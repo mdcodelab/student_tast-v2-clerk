@@ -1,7 +1,9 @@
+import connectDB from "@/utils/database";
+import User from "@/models/userModel";
 
-
-function ResultsPage() {
-  console.log("results page");
+async function ResultsPage() {
+  await connectDB();
+  const user = await User.fundOne({})
   return (
     <div>
       Results Page
