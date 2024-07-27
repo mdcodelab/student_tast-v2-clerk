@@ -1,7 +1,11 @@
 
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table"
+import connectDB from "@/utils/database";
+import User from "@/models/userModel";
 
 async function StudentsPage() {
+  await connectDB();
+  const allUsers = await User.find({});
   
 
   return (
@@ -9,25 +13,34 @@ async function StudentsPage() {
       <Table>
         <TableHeader className="text-xl font-semibold">
           <TableRow>
-            <TableCell>clerkId</TableCell>
-            <TableCell>Prenume</TableCell>
-            <TableCell>Nume</TableCell>
-            <TableCell>Email</TableCell>
-            <TableCell>Rezultat</TableCell>
+            <TableCell className="text-center">Nr.crt.</TableCell>
+            <TableCell className="text-center">clerkId</TableCell>
+            <TableCell className="text-center">Prenume</TableCell>
+            <TableCell className="text-center">Nume</TableCell>
+            <TableCell className="text-center">Email</TableCell>
+            <TableCell className="text-center">Rezultat</TableCell>
           </TableRow>
         </TableHeader>
 
         <TableBody>
-          {/* {users.map((user, index) => {
+          {allUsers.map((user, index) => {
             return (
-              <TableRow key={user._id}>
-                <TableCell>{user._id}</TableCell>
-                <TableCell>{user.name}</TableCell>
-                <TableCell>{user.email}</TableCell>
-                <TableCell>{user.result}</TableCell>
+              <TableRow key={index}>
+                <TableCell className="text-center">{index+1}.</TableCell>
+                <TableCell className="text-center">{user.clerkId}</TableCell>
+                <TableCell className="text-center">
+                  {user.firstName ? user.firstName : "-"}
+                </TableCell>
+                <TableCell className="text-center">
+                  {user.lastName ? user.lastName : "-"}
+                </TableCell>
+                <TableCell className="text-center">{user?.email}</TableCell>
+                <TableCell className="text-center">
+                  {user?.result.toFixed(2)}
+                </TableCell>
               </TableRow>
             );
-          })} */}
+          })}
         </TableBody>
       </Table>
     </div>
