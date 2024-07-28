@@ -22,8 +22,6 @@ function Test() {
     }
   }, [isLoaded, isSignedIn, user]);
 
-  console.log("User este:", user);
-  console.log("ID este:", userId);
 
   //capture user answers
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));

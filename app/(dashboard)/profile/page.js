@@ -30,7 +30,7 @@ async function ProfilePage() {
       <div className="flex flex-col gap-y-4 px-4 text-xl">
         <p className="text-xl">
           Testul cuprinde 30 de intrebari. Fiecare intrebare are un singur
-          raspuns corect.{" "}
+          raspuns corect.
         </p>
         <p>
           Fiecare raspuns corect este notat cu 0,3 puncte. Se acorda un punct
@@ -39,7 +39,7 @@ async function ProfilePage() {
         <p>Timpul de lucru este de 2 ore.</p>
         <p className="text-center pt-6">Succes! &#128522;</p>
         <Button className="w-50 mt-6 mx-auto text-xl">
-          <Loader2 className="mr-2 animate-spin" />{" "}
+          <Loader2 className="mr-2 animate-spin" />
           <Link href="/profile/test">Incepe Testul</Link>
         </Button>
       </div>
