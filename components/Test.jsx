@@ -55,9 +55,13 @@ function Test() {
   return (
     <>
       <Button as Child variant="default" className="flex gap-x-2 mb-2">
-        <MdKeyboardDoubleArrowLeft></MdKeyboardDoubleArrowLeft>{" "}
-        <Link href="/profile" className="w-20 flex items-center">
-          <h2>Inapoi la Info</h2>
+        <Link href="/profile" className="flex items-center">
+          <h2 className="w-40">
+            <MdKeyboardDoubleArrowLeft
+              style={{ fontSize: "1rem" }}
+            ></MdKeyboardDoubleArrowLeft>
+            Inapoi la Info
+          </h2>
         </Link>
       </Button>
       {/*  rezultat*/}
