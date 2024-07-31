@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
-import { getAnswers, updateUser } from "@/app/actions/userActions";
+import {getGrupa, getAnswers, updateUser } from "@/app/actions/userActions";
 
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 
@@ -22,11 +22,10 @@ function Test() {
     }
   }, [isLoaded, isSignedIn, user]);
 
-
   //capture user answers
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
 
-  // Handle change for each quwersestion's answer
+  // Handle change for each answer
   const handleChange = (questionIndex, optionIndex) => {
     const newAnswers = [...answers];
     newAnswers[questionIndex] = optionIndex;
@@ -36,9 +35,10 @@ function Test() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
+      await getGrupa(grupa);
       await getAnswers(answers);
       console.log("Submitted answers:", answers);
-      await updateUser(userId, answers);
+      await updateUser(userId, answers, grupa);
       toast.success("Test sent successfully!");
     } catch (error) {
       toast.error("Error. Try again!");
@@ -52,7 +52,7 @@ function Test() {
 
   return (
     <>
-      <Button as Child variant="default" className="flex gap-x-2 mb-2">
+      <Button variant="default" className="flex gap-x-2 mb-2">
         <Link href="/profile" className="flex items-center">
           <h2 className="w-40">
             <MdKeyboardDoubleArrowLeft

@@ -7,13 +7,17 @@ const correctAnswers = [
   2, 1, 0, 0,
 ];
 
+export const getGrupa = async ()=> {
+  return grupa;
+}
+
 export const getAnswers = async (values) => {
   console.log(values);
-  return JSON.stringify(values); // Return the received values, serialized
+  return values;
 };
 
 export const calculateResult = async (values) => {
-  const studentAnswers = JSON.parse(await getAnswers(values)); // Deserialize the array of answers
+  const studentAnswers = await getAnswers(values);
   let totalScore = 0;
 
   for (let i = 0; i < studentAnswers.length; i++) {
@@ -30,23 +34,28 @@ export const calculateResult = async (values) => {
   return finalScore;
 };
 
-export const updateUser = async (clerkId, values) => {
+export const updateUser = async (clerkId, values, grupa) => {
   await connectDB();
 
   // Find user by clerkId in MongoDB
   const user = await User.findOne({ clerkId });
 
   if (user) {
-    const answers = JSON.parse(await getAnswers(values)); // Deserialize answers
+    const answers = await getAnswers(values);
     const result = await calculateResult(values);
+    const setGrupa = await getGrupa(grupa);
 
     // Update the user's answers and result
+    user.grupa=grupa;
     user.answers = answers;
     user.result = result;
     await user.save();
   } else {
     console.log("There is no user");
   }
+
+  console.log("Userul meu este:", user);
+  console.log("Userul meu in stringify este:", JSON.stringify(user));
 
   return JSON.stringify(user); // Return the user, serialized
 };
