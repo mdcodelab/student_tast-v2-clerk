@@ -7,8 +7,8 @@ const correctAnswers = [
   2, 1, 0, 0,
 ];
 
-export const getGrupa = async ()=> {
-  return grupa;
+export const getGroup = async (group)=> {
+  return group;
 }
 
 export const getAnswers = async (values) => {
@@ -34,7 +34,8 @@ export const calculateResult = async (values) => {
   return finalScore;
 };
 
-export const updateUser = async (clerkId, values, grupa) => {
+
+export const updateUser = async (clerkId, values, group) => {
   await connectDB();
 
   // Find user by clerkId in MongoDB
@@ -43,10 +44,9 @@ export const updateUser = async (clerkId, values, grupa) => {
   if (user) {
     const answers = await getAnswers(values);
     const result = await calculateResult(values);
-    const setGrupa = await getGrupa(grupa);
 
     // Update the user's answers and result
-    user.grupa=grupa;
+    user.group=group;
     user.answers = answers;
     user.result = result;
     await user.save();

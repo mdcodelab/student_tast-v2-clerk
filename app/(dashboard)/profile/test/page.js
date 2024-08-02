@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
-import { getAnswers, updateUser } from "@/app/actions/userActions";
+import { getGroup, getAnswers, updateUser } from "@/app/actions/userActions";
 
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 
@@ -36,14 +36,20 @@ function Test() {
     setAnswers(newAnswers);
   };
 
-  const[grupa, setGrupa]=useState("");
+  const[group, setGroup]=useState("");
+  const handleGroup = (e) => {
+    setGroup(e.target.value);
+  }
+
+  console.log("Grupa mea este", group);
 
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await getAnswers(answers, grupa);
+      await getGroup(group);
+      await getAnswers(answers, group);
       console.log("Submitted answers:", answers);
-      await updateUser(userId, answers);
+      await updateUser(userId, answers, group);
       toast.success("Test sent successfully!");
     } catch (error) {
       toast.error("Error. Try again!");
@@ -74,8 +80,8 @@ function Test() {
 
           <div className="w-full flex items-center gap-2 my-8">
             <Label htmlFor="grupa" className="text-lg">Introduceti grupa:</Label>
-            <Input type="text" className="w-[100px] bordered border-black" name="grupa" 
-            value={grupa} placeholder="Grupa..." onChange={(e)=>setGrupa(e.target.value)}></Input>
+            <Input type="text" className="w-[150px] bordered border-black" name="grupa" 
+            value={group} placeholder="Group number..." onChange={handleGroup}></Input>
           </div>
           
           {/* Inputuri pentru raspunsuri*/}
