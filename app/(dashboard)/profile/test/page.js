@@ -15,7 +15,7 @@ import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 function Test() {
   //get user id from Clerk
   const { isLoaded, isSignedIn, user } = useUser();
-  //set its inital id value === null and the caputured it
+  //set its initial id value === null and the caputured it
   const [userId, setUserId] = useState(null);
   useEffect(() => {
     if (isLoaded && isSignedIn && user) {
@@ -40,8 +40,6 @@ function Test() {
   const handleGroup = (e) => {
     setGroup(e.target.value);
   }
-
-  console.log("Grupa mea este", group);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -69,7 +67,7 @@ function Test() {
             <MdKeyboardDoubleArrowLeft
               style={{ fontSize: "1.5rem" }}
             ></MdKeyboardDoubleArrowLeft>
-            Inapoi la Info
+            Back to Info
           </h2>
         </Link>
       </Button>
@@ -79,7 +77,7 @@ function Test() {
           {/* Input pentru grupa*/}
 
           <div className="w-full flex items-center gap-2 my-8">
-            <Label htmlFor="grupa" className="text-lg">Introduceti grupa:</Label>
+            <Label htmlFor="grupa" className="text-lg">Enter your group number:</Label>
             <Input type="text" className="w-[150px] bordered border-black" name="grupa" 
             value={group} placeholder="Group number..." onChange={handleGroup}></Input>
           </div>

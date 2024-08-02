@@ -15,8 +15,7 @@ const[isUserAdmin, setUserAdmin] = useState(true);
   return (
     <aside className="h-full bg-muted">
       <h1 className="text-center pb-10 pt-6 font-semibold text-2xl">
-        Management financiar
-      </h1>
+        Financial Management</h1>
       <div
         className="background-div rounded mx-auto my-4"
         style={{ width: "15rem", height: "10rem" }}
@@ -29,11 +28,11 @@ const[isUserAdmin, setUserAdmin] = useState(true);
 
         <Button
           variant={pathname === "/profile/results" ? "default" : "link"}>
-          <Link href="/profile/results" className="flex items-center gap-x-2 text-xl"><LuGoal /> Rezultate</Link>
+          <Link href="/profile/results" className="flex items-center gap-x-2 text-xl"><LuGoal />Scores</Link>
         </Button>
         {isUserAdmin && (
           <Button variant={pathname === "/profile/students" ? "default" : "link"}>
-            <Link href="/profile/students" className="flex items-center gap-x-2 text-xl"><PiStudent /> Studenti</Link>
+            <Link href="/profile/students" className="flex items-center gap-x-2 text-xl"><PiStudent /> Students</Link>
           </Button>
         )}
       </div>
