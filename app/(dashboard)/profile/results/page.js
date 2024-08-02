@@ -27,7 +27,7 @@ async function ResultsPage() {
     <div className="w-full h-full">
       <h1 className="text-xl font-semibold mb-8 flex items-center justify-center gap-2">
         <FaRegNoteSticky style={{ fontSize: "1.5rem" }} />
-        Rezultat test: {user?.result.toFixed(2)}
+        Test result: {user?.result.toFixed(2)}
       </h1>
 
       <div className="shadow-xl rounded">
@@ -35,9 +35,9 @@ async function ResultsPage() {
           <TableHeader className="text-lg font-semibold">
             <TableRow>
               <TableHead className="text-center">Nr.crt.</TableHead>
-              <TableHead className="text-center">Răspunsul tau</TableHead>
-              <TableHead className="text-center">Răspuns corect</TableHead>
-              <TableHead className="text-center">Punctaj</TableHead>
+              <TableHead className="text-center">Your answer</TableHead>
+              <TableHead className="text-center">Correct answer</TableHead>
+              <TableHead className="text-center">Score</TableHead>
             </TableRow>
           </TableHeader>
 
