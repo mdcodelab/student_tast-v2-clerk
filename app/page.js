@@ -1,6 +1,6 @@
 import { Button } from "../components/ui/button";
 import Link from "next/link";
-import { SignUpButton } from "@clerk/nextjs";
+//import { SignUpButton } from "@clerk/nextjs";
 import { Card, CardContent } from "../components/ui/card";
 
 function HomePage() {
@@ -29,7 +29,7 @@ function HomePage() {
               className="w-100 ml-20 mt-10 relative p-8 rounded text-lg"
             >
               <Button className="text-2xl px-10 py-6">
-                <SignUpButton></SignUpButton>
+                Get Started
               </Button>
             </Link>
           </CardContent>
