@@ -11,6 +11,7 @@ import { useUser } from "@clerk/nextjs";
 import { getGroup, getAnswers, updateUser } from "@/app/actions/userActions";
 
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
+import { FaArrowLeft } from "react-icons/fa";
 
 function Test() {
   //get user id from Clerk
@@ -35,25 +36,17 @@ function Test() {
     newAnswers[questionIndex] = optionIndex;
     setAnswers(newAnswers);
   };
-
-<<<<<<< HEAD
-  const[grupa, setGrupa]=useState("");
-=======
   const[group, setGroup]=useState("");
+
   const handleGroup = (e) => {
     setGroup(e.target.value);
   }
->>>>>>> ef6e9fdb3ec8d683e8d9faa281c7b7d9ea12e632
 
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-<<<<<<< HEAD
-      await getAnswers(answers, grupa);
-=======
       await getGroup(group);
       await getAnswers(answers, group);
->>>>>>> ef6e9fdb3ec8d683e8d9faa281c7b7d9ea12e632
       console.log("Submitted answers:", answers);
       await updateUser(userId, answers, group);
       toast.success("Test sent successfully!");
@@ -85,15 +78,9 @@ function Test() {
           {/* Input pentru grupa*/}
 
           <div className="w-full flex items-center gap-2 my-8">
-<<<<<<< HEAD
-            <Label htmlFor="grupa" className="text-lg">Introduceti grupa:</Label>
-            <Input type="text" className="w-[100px] bordered border-black" name="grupa" 
-            value={grupa} placeholder="Grupa..." onChange={(e)=>setGrupa(e.target.value)}></Input>
-=======
-            <Label htmlFor="grupa" className="text-lg">Enter your group number:</Label>
-            <Input type="text" className="w-[150px] bordered border-black" name="grupa" 
+            <Label htmlFor="group" className="text-lg">Enter your group number:</Label>
+            <Input type="text" className="w-[150px] bordered border-black" name="group" 
             value={group} placeholder="Group number..." onChange={handleGroup}></Input>
->>>>>>> ef6e9fdb3ec8d683e8d9faa281c7b7d9ea12e632
           </div>
           
           {/* Inputuri pentru raspunsuri*/}
@@ -129,8 +116,8 @@ function Test() {
               </div>
             );
           })}
-          <Button type="submit" className="w-full text-xl">
-            Trimite
+          <Button type="submit" className="w-full text-xl flex items-center">
+            <FaArrowLeft style={{display: "block", marginRight: "1rem"}}></FaArrowLeft> Send it
           </Button>
         </form>
       </>

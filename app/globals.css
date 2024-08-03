@@ -63,7 +63,6 @@
     }
   }
 
-<<<<<<< HEAD
   .background-div {
     background-image: url("../public/images/image.jpg");
     background-size: cover;
@@ -86,7 +85,7 @@
     bottom: 25px;
     transform: translateX(-50%);
   }
-=======
+
 
     .background-div {
       background-image: url("../public/images/image.jpg");
@@ -94,7 +93,3 @@
       background-repeat: no-repeat;
       background-position: center;
     };
-  
-  
-  
->>>>>>> ef6e9fdb3ec8d683e8d9faa281c7b7d9ea12e632
