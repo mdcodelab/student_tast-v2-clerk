@@ -3,6 +3,7 @@ import { questions } from "@/utils/questions";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@//components/ui/radio-group";
 import { Button } from "@//components/ui/button";
+import { Input } from "@//components/ui/input";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import Link from "next/link";
@@ -35,10 +36,12 @@ function Test() {
     setAnswers(newAnswers);
   };
 
+  const[grupa, setGrupa]=useState("");
+
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await getAnswers(answers);
+      await getAnswers(answers, grupa);
       console.log("Submitted answers:", answers);
       await updateUser(userId, answers);
       toast.success("Test sent successfully!");
@@ -66,7 +69,16 @@ function Test() {
       </Button>
 
       <>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className="shadow-lg">
+          {/* Input pentru grupa*/}
+
+          <div className="w-full flex items-center gap-2 my-8">
+            <Label htmlFor="grupa" className="text-lg">Introduceti grupa:</Label>
+            <Input type="text" className="w-[100px] bordered border-black" name="grupa" 
+            value={grupa} placeholder="Grupa..." onChange={(e)=>setGrupa(e.target.value)}></Input>
+          </div>
+          
+          {/* Inputuri pentru raspunsuri*/}
           {questions.map((item, questionIndex) => {
             const { id, question, answers: options } = item;
             return (

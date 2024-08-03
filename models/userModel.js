@@ -10,6 +10,8 @@ const UserSchema = new Schema(
 
     email: { type: String, required: true },
 
+    grupa: { type: String },
+
     password: { type: String },
 
     image: { type: String },

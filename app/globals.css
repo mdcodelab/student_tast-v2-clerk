@@ -68,4 +68,20 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    position: relative;
+  }
+
+  .card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: max-content;
+  }
+
+  footer {
+    position: absolute;
+    left: 50%;
+    bottom: 25px;
+    transform: translateX(-50%);
   }
