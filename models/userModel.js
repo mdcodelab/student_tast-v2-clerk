@@ -10,11 +10,17 @@ const UserSchema = new Schema(
 
     email: { type: String, required: true },
 
+<<<<<<< HEAD
     grupa: { type: String },
 
     password: { type: String },
+=======
+    group: { type: String, default: "0", unique: true},
+>>>>>>> ef6e9fdb3ec8d683e8d9faa281c7b7d9ea12e632
 
-    image: { type: String },
+    password: { type: String, unique: true },
+
+    image: { type: String, unique: true },
 
     //for Clerk
     clerkId: { type: String },

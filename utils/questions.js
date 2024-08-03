@@ -1,148 +1,244 @@
 export const questions = [
   {
     id: 1,
-    question:
-      "Printre obiectivele gestiunii financiare a firmei putem enumera:",
+    question: "Among the objectives of a company's financial management, we can include:",
     answers: [
-      "Cresterea numarului de salariati.",
-      "Reorganizarea activitatii firmei.",
-      "Previzionarea cifrei de afaceri, profitului si structurii financiare.",
-    ],
+      "Increasing the number of employees.",
+      "Reorganizing the company's activities.",
+      "Forecasting turnover, profit, and financial structure."
+    ]
   },
-
   {
     id: 2,
-    question: "Principalele decizii financiare ale firmei se refera la:",
+    question: "The main financial decisions of a company relate to:",
     answers: [
-      "Decizii de productie si comercializare.",
-      "Decizii de reorientare pe piata bunurilor.",
-      "Decizii de investitii, finantare si dividend.",
-    ],
+      "Production and marketing decisions.",
+      "Market reorientation decisions.",
+      "Investment, financing, and dividend decisions."
+    ]
   },
-
   {
     id: 3,
-    question: "O firma poate prezenta autonomie financiara daca:",
+    question: "A company can demonstrate financial autonomy if:",
     answers: [
-      "Are suficienta capacitate de autofinantare pentru proiecte de investitii.",
-      "Are o rata mica de indatorare.",
-      "Plateste impozit pe profit redus.",
-    ],
+      "It has sufficient self-financing capacity for investment projects.",
+      "It has a low debt ratio.",
+      "It pays reduced profit tax."
+    ]
   },
-
   {
     id: 4,
-    question: "Emisiunea de noi actiuni conduce la:",
+    question: "Issuing new shares leads to:",
     answers: [
-      "Cresterea prestigiului firmei pe piata financiara.",
-      "Majorarea capitalului social si finantarea de noi investitii.",
-      "Reducerea averii actionarilor existenti.",
-    ],
+      "Increasing the company's prestige on the financial market.",
+      "Increasing share capital and financing new investments.",
+      "Reducing the wealth of existing shareholders."
+    ]
   },
-
   {
     id: 5,
-    question:
-      "Cresterea capitalului social prin incorporarea rezervelor are consecinta:",
+    question: "Increasing share capital by incorporating reserves results in:",
     answers: [
-      "Cresterea capitalurilor proprii.",
-      "Distribuirea de actiuni noi gratuite.",
-      "Cresterea lichiditatilor firmei.",
-    ],
+      "Increasing equity.",
+      "Distributing new free shares.",
+      "Increasing the company's liquidity."
+    ]
   },
-
   {
     id: 6,
-    question:
-      "Se realizeaza un proiect de investitie de inlocuire pentru reducerea costurilor. In functie de valoarea actualizata a costurilor de productie de mai jos, care proiect este mai eficient?",
+    question: "A cost reduction investment project is being carried out. Based on the present value of the production costs below, which project is more efficient?",
     answers: [
-      "Un proiect cu -12.500 lei valoare a ctualizata a costurilor.",
-      "Proiectul cu -8.200 lei valoare a ctualizata a costurilor.",
-      "Nici unul de mai sus.",
-    ],
+      "A project with a present value of costs of -12,500 $.",
+      "A project with a present value of costs of -8,200 $.",
+      "None of the above."
+    ]
   },
-
   {
     id: 7,
-    question:
-      "Daca firma adopta doua proiecte de investitii, unul cu VAN=25.000 lei si celalalt cu VAN=12.400 lei, valoarea valoarea actualizata neta a acestei decizii va fi:",
-    answers: ["37.400 lei", "25.000 lei", "12.400 lei"],
+    question: "If the company adopts two investment projects, one with NPV=25,000 $ and the other with NPV=12,400 $, the net present value of this decision will be:",
+    answers: ["37,400 $", "25,000 $", "12,400 $"]
   },
-
   {
     id: 8,
-    question:
-      "O firma a contractat un credit in suma de 35.000 lei cu rata anuala a dobanzii de 10%. Ce dobanda va avea de platit daca a rambursat 12.000 lei?",
-    answers: ["1.200 lei", "3.500 lei", "2.300 lei"],
+    question: "A company has taken out a loan of 35,000 $ with an annual interest rate of 10%. What interest will it have to pay if it repays 12,000 $?",
+    answers: ["1,200 $", "3,500 $", "2,300 $"]
   },
-
-  { id: 9, question: "Un investitor cumpara o actiune la pretul de 8.400 lei, in speranta obtinerii in viitor a unui dividend anual de 1.176 lei pe durata nedeterminata. Care va fi rata de rentabilitate?",
-     answers: ["14%", "86%", "50%" ] },
-
-  { id: 10, question: "La evaluarea a doua proiecte de investitii concurente cu VAN si RIR, pentru care cei doi indicatori conduc la rezultate divergente, se recomanda:",
-answers: ["Considerarea proiectului cu RIR mai mare.", "Considerarea proiectului cu VAN mai mare.", "Respingerea ambelor proiecte."] },
-  
-{ id: 11, question: "Daca pentru un proiect de investitii de 345.000 lei VAN =67.200 lei, indicele de profitabilitate va fi:", 
-    answers: ["1,94", "1,24", "1.19"] },
-
-  { id: 12, question: "La finantarea unei investitiii s-au folosit 70% capitaluri proprii cu un cost de 12% si 30% capitaluri imprumutate cu un cost de 9%. Costul total al capitalurilor va fi:",
-     answers: ["21.00%", "11,10%", "2,33%"] },
-
-  { id: 13, question: "O firma prezinta echilibru financiar numai daca:", answers: 
-    ["Nevoile de finantat permanente se acopera din resurse permanente, iar cele temporare din resurse de aceeasi durata.", 
-        "Fondul de rulment este negativ.", "Are suficiente stocuri pentru a-si continua ciclul de exploatare."] },
-
-  { id: 14, question: "Daca fondul de rulment propriu este de 415.000 lei, iar fondul de rulment strain este de 291.000 lei, fondul de rulment total va fi:", 
-    answers: ["706.000 lei", "415.000 lei", "124.000 lei"] },
-  
-    { id: 15, question: "Capitalurile proprii ale unei firme insumeaza 1.212.000 lei. Daca numarul de actiuni emise este de 2.500.000, veti cumpara actiuni la un curs de 1,2 lei/actiune?", 
-        answers: ["Da, intrucat pretul poate creste in viitor si mai mult.", "Nu, pentru ca la 1,2 lei actiunile sunt supraevaluate.", "Nu stiu."] },
-  
-{ id: 16, question: "Capitalurile proprii insumeaza 890.000 lei, iar cele imprumutate 556.000 lei. Daca totalul activelor circulante este de 761.000, activele imobilizate vor fi:", 
-  answers: ["334.000 lei", "129.000 lei", "685.000 lei"] },
-
-  { id: 17, question: "Profitul brut este de 441.000 lei, iar dobanzile 231.000 lei. Considerand datele din exemplul precedent, rentabilitatea economica (Re) si financiara (Rf) este:", 
-    answers: ["Re=14,52%; Rf=49,55%", "Re=30,49%; Rf=49,55%", "Re=49,55%; Rf=23,59%"] },
-
-  { id: 18, question: "Daca Re > Rf, acest lucru se datoreaza:", 
-    answers: ["Efectului ozitiv de levier.", "Efectului negativ de levier.", "Aportului actionarilor."] },
-
-  { id: 19, question: "Trezoreria negativa (T < 0), este consecinta:", 
-    answers: ["Contractarii de credite bancare.", "Dezechilibrului financiar.", "Reducerii stocurilor."] },
-
-  { id: 20, question: "Nevoia de fond de rulment (NFR) > 0 poate fi consecinta:", 
-    answers: ["Cresterii datoriilor fata de terti.", "Majorarii capitalurilor proprii.", "Cresterii activelor imobilizate."] },
-
-  { id: 21, question: "Emisiunea de obligatiuni poate fi realizata de:", 
-    answers: ["Societatile pe actiuni.", "Societatile cotate la bursa de valori.", "Oricare intreprindere."] },
-
-  { id: 22, question: "Admitand ca Re=18,50%, iar Rf=22.8%, efectul de levier va fi:", 
-    answers: ["4,30%", "1,23%", "De fapt, efectul este unul negativ."] },
-
-  { id: 23, question: "Efectul de levier al indatorarii se refera la:", 
-    answers: ["Impactul cresterii profitului asupra indatorarii.", "Efectul cresterii capitalurilor proprii asupra indatorarii.", "Efectul indatorarii asupra rentabilitatii financiare."] },
-
-  { id: 24, question: "De regula, finantarea ciclului de exploatare se realizeaza din:", 
-    answers: ["Credite bancare pe termen lung.", "Fond de rulment si credite bancare pe termen scurt.", "Subventii pentru investitii."] },
-
-  { id: 25, question: "Structura financiara optima este aceea la care:", 
-    answers: ["Costul capitalurilor este cel mai redus.", "Rata indatorarii este redusa.", "Rentabilitatea financiara este mai mare decat cea economica."] },
-  
-    { id: 26, question: "Reducerea ratei de indatorare se poate realiza prin:", 
-      answers: ["Aportul actionarilor.", "Cresterea cifrei de afaceri.", "Realizarea de noi investitii."] },
-
-  { id: 27, question: "Reducerea ratei indatorarii are drept consecinta:", 
-    answers: ["Cresterea rentabilitatii economice.", "Cresterea rentabilitatii financiare.", "Modificarea costului total de capital."] },
-
-  {id: 28, question: "Riscul de exploatare este cu atat mai mare cu cat:", 
-    answers: ["Rata indatorarii este mai mare.", "Cheltuielile fixe sunt mai mari.", "Rentabilitatea financiara este mai mica."] },
-
-  {id: 29, question: "Reducerea nevoii de fond de rulment se poate realiza prin:", 
-    answers: ["Cresterea vitezei de rotatie a stocurilor si creantelor.", "Aportul actionarilor.", "Reducerea creditelor bancare pe termen scurt."] },
-
-  {id: 30, question: "Cresterea fondului de rulment se poate realiza prin:", 
-    answers: ["Cresterea profitului.", "Cresterea cifrei de afaceri.", "Cresterea investitiilor."] }
+  {
+    id: 9,
+    question: "An investor buys a share at the price of 8,400 $, hoping to obtain an annual dividend of 1,176 $ indefinitely. What will be the rate of return?",
+    answers: ["14%", "86%", "50%"]
+  },
+  {
+    id: 10,
+    question: "When evaluating two competing investment projects with NPV and IRR, for which the two indicators lead to divergent results, it is recommended:",
+    answers: [
+      "Considering the project with the higher IRR.",
+      "Considering the project with the higher NPV.",
+      "Rejecting both projects."
+    ]
+  },
+  {
+    id: 11,
+    question: "If for an investment project of 345,000 $ NPV = 67,200 $, the profitability index will be:",
+    answers: ["1.94", "1.24", "1.19"]
+  },
+  {
+    id: 12,
+    question: "If 70% own capital with a cost of 12% and 30% borrowed capital with a cost of 9% were used to finance an investment, the total cost of capital will be:",
+    answers: ["21.00%", "11.10%", "2.33%"]
+  },
+  {
+    id: 13,
+    question: "A company presents financial equilibrium only if:",
+    answers: [
+      "Permanent financing needs are covered by permanent resources, and temporary ones by resources of the same duration.",
+      "The working capital is negative.",
+      "It has enough stocks to continue its operating cycle."
+    ]
+  },
+  {
+    id: 14,
+    question: "If the own working capital is 415,000 $ and the foreign working capital is 291,000 $, the total working capital will be:",
+    answers: ["706,000 $", "415,000 $", "124,000 $"]
+  },
+  {
+    id: 15,
+    question: "The own capital of a company amounts to 1,212,000 $. If the number of shares issued is 2,500,000, will you buy shares at a rate of 1.2 $/share?",
+    answers: [
+      "Yes, because the price can rise even higher in the future.",
+      "No, because at 1.2 $ the shares are overvalued.",
+      "I don't know."
+    ]
+  },
+  {
+    id: 16,
+    question: "The own capital amounts to 890,000 $, and the borrowed capital 556,000 $. If the total current assets are 761,000 $, the fixed assets will be:",
+    answers: ["334,000 $", "129,000 $", "685,000 $"]
+  },
+  {
+    id: 17,
+    question: "The gross profit is 441,000 $, and the interest is 231,000 $. Considering the data from the previous example, the economic profitability (Re) and financial profitability (Rf) are:",
+    answers: [
+      "Re = 14.52%; Rf = 49.55%",
+      "Re = 30.49%; Rf = 49.55%",
+      "Re = 49.55%; Rf = 23.59%"
+    ]
+  },
+  {
+    id: 18,
+    question: "If Re > Rf, this is due to:",
+    answers: [
+      "Positive leverage effect.",
+      "Negative leverage effect.",
+      "Shareholder contributions."
+    ]
+  },
+  {
+    id: 19,
+    question: "Negative treasury (T < 0) is a consequence of:",
+    answers: [
+      "Taking out bank loans.",
+      "Financial imbalance.",
+      "Reducing stocks."
+    ]
+  },
+  {
+    id: 20,
+    question: "A need for working capital (NFR) > 0 can be a consequence of:",
+    answers: [
+      "Increasing debts to third parties.",
+      "Increasing own capital.",
+      "Increasing fixed assets."
+    ]
+  },
+  {
+    id: 21,
+    question: "Bonds can be issued by:",
+    answers: [
+      "Joint-stock companies.",
+      "Companies listed on the stock exchange.",
+      "Any enterprise."
+    ]
+  },
+  {
+    id: 22,
+    question: "Assuming Re = 18.50%, and Rf = 22.8%, the leverage effect will be:",
+    answers: ["4.30%", "1.23%", "In fact, the effect is negative."]
+  },
+  {
+    id: 23,
+    question: "The leverage effect of indebtedness refers to:",
+    answers: [
+      "The impact of profit growth on indebtedness.",
+      "The effect of increasing equity on indebtedness.",
+      "The effect of indebtedness on financial profitability."
+    ]
+  },
+  {
+    id: 24,
+    question: "The operating cycle is usually financed from:",
+    answers: [
+      "Long-term bank loans.",
+      "Working capital and short-term bank loans.",
+      "Investment subsidies."
+    ]
+  },
+  {
+    id: 25,
+    question: "The optimal financial structure is one where:",
+    answers: [
+      "The cost of capital is the lowest.",
+      "The debt ratio is low.",
+      "Financial profitability is higher than economic profitability."
+    ]
+  },
+  {
+    id: 26,
+    question: "The debt ratio can be reduced by:",
+    answers: [
+      "Shareholder contributions.",
+      "Increasing turnover.",
+      "Making new investments."
+    ]
+  },
+  {
+    id: 27,
+    question: "Reducing the debt ratio results in:",
+    answers: [
+      "Increasing economic profitability.",
+      "Increasing financial profitability.",
+      "Changing the total cost of capital."
+    ]
+  },
+  {
+    id: 28,
+    question: "The operating risk is greater the more:",
+    answers: [
+      "The debt ratio is higher.",
+      "Fixed costs are higher.",
+      "Financial profitability is lower."
+    ]
+  },
+  {
+    id: 29,
+    question: "Reducing the need for working capital can be achieved by:",
+    answers: [
+      "Increasing the turnover rate of stocks and receivables.",
+      "Shareholder contributions.",
+      "Reducing short-term bank loans."
+    ]
+  },
+  {
+    id: 30,
+    question: "Increasing working capital can be achieved by:",
+    answers: [
+      "Increasing profit.",
+      "Increasing turnover.",
+      "Increasing investments."
+    ]
+  }
 ];
 
 export const correctAnswers = [
-2, 2, 0, 1, 1, 1, 0, 2, 0, 1, 2, 1, 0, 2, 1, 2, 0, 0, 1, 2, 1, 0, 2, 1, 0, 0, 2, 1, 0, 0]
+  2, 2, 0, 1, 1, 1, 0, 2, 0, 1, 2, 1, 0, 2, 1, 2, 0, 0, 1, 2, 1, 0, 2, 1, 0, 0, 2, 1, 0, 0
+];

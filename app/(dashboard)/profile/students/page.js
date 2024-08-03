@@ -19,10 +19,11 @@ async function StudentsPage() {
         <TableHeader className="text-xl font-semibold">
           <TableRow>
             <TableHead className="text-center">Nr.crt.</TableHead>
-            <TableHead className="text-center">Prenume</TableHead>
-            <TableHead className="text-center">Nume</TableHead>
+            <TableHead className="text-center">First name</TableHead>
+            <TableHead className="text-center">Last name</TableHead>
+            <TableHead className="text-center">Group</TableHead>
             <TableHead className="text-center">Email</TableHead>
-            <TableHead className="text-center">Rezultat</TableHead>
+            <TableHead className="text-center">Results</TableHead>
           </TableRow>
         </TableHeader>
 
@@ -36,6 +37,9 @@ async function StudentsPage() {
                 </TableCell>
                 <TableCell className="text-center">
                   {user.lastName ? user.lastName : "-"}
+                </TableCell>
+                <TableCell className="text-center">
+                  {user.group ? user.group : "-"}
                 </TableCell>
                 <TableCell className="text-center">{user?.email}</TableCell>
                 <TableCell className="text-center">
