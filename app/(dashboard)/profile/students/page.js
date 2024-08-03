@@ -39,7 +39,7 @@ async function StudentsPage() {
                   {user.lastName ? user.lastName : "-"}
                 </TableCell>
                 <TableCell className="text-center">
-                  {user.group ? user.group : "-"}
+                  {user?.group}
                 </TableCell>
                 <TableCell className="text-center">{user?.email}</TableCell>
                 <TableCell className="text-center">
