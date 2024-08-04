@@ -5,8 +5,8 @@ import Providers from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Test for Students",
-  description: "This is a test of Corporate Finance",
+  title: "Financial Management Test",
+  description: "Financial Management Test for Students",
 };
 
 export default function RootLayout({ children }) {
