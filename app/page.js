@@ -9,9 +9,10 @@ function HomePage() {
     const [buttonText, setButtonText] = useState("Get Started");
     const [isHovering, setIsHovering] = useState(false);
 
-    const handleMouseEnter = () => {
+
+  const handleMouseEnter = () => {
     setIsHovering(true);
-    setButtonText("Ready?");
+    setTimeout(() => setButtonText("Ready?"), 400);
   };
 
   const handleMouseLeave = () => {
@@ -54,7 +55,7 @@ function HomePage() {
               className="w-100 flex items-center justify-center mt-10 p-8 rounded text-lg"
             >
               <Button
-                className="text-2xl px-10 py-6"
+                className="text-2xl px-10 py-6 transition-all duration-400 ease-in-out"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 onClick={handleClick}
