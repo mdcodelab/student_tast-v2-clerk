@@ -26,7 +26,7 @@ function HomePage() {
             </h1>
             <Link
               href="/profile"
-              className="w-100 ml-20 mt-10 relative p-8 rounded text-lg"
+              className="w-100 flex items-center justify-center mt-10 p-8 rounded text-lg"
             >
               <Button className="text-2xl px-10 py-6">
                 Get Started
