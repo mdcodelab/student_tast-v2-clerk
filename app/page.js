@@ -1,9 +1,34 @@
+"use client";
 import { Button } from "../components/ui/button";
 import Link from "next/link";
 //import { SignUpButton } from "@clerk/nextjs";
 import { Card, CardContent } from "../components/ui/card";
+import { useState } from "react";
 
 function HomePage() {
+    const [buttonText, setButtonText] = useState("Get Started");
+    const [isHovering, setIsHovering] = useState(false);
+
+    const handleMouseEnter = () => {
+    setIsHovering(true);
+    setButtonText("Ready?");
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+    setButtonText("Get Started");
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setButtonText("Go...");
+
+    setTimeout(() => {
+      window.location.href = "/profile"; 
+    }, 2000);
+  };
+
+
   return (
     <div className="h-screen w-screen background-div">
       <div className="card">
@@ -28,8 +53,13 @@ function HomePage() {
               href="/profile"
               className="w-100 flex items-center justify-center mt-10 p-8 rounded text-lg"
             >
-              <Button className="text-2xl px-10 py-6">
-                Get Started
+              <Button
+                className="text-2xl px-10 py-6"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onClick={handleClick}
+              >
+                {buttonText}
               </Button>
             </Link>
           </CardContent>
